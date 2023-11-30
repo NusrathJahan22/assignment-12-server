@@ -34,6 +34,11 @@ async function run() {
         const payment = client.db('surveyDB').collection('payment')
         const cart1 = client.db('surveyDB').collection('cart1')
 
+        // const verifyToken =(req,res,next)=>{
+        //     console.log('inside verifytoken',req.headers)
+        //     next()
+        // }
+
         // app.post('/jwt', async (req, res) => {
         //     const user = req.body;
         //     const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' }).payment
@@ -91,7 +96,10 @@ async function run() {
             res.send(result)
         })
 
-        app.get('/users', async (req, res) => {
+        
+
+        app.get('/users',async (req, res) => {
+            
             const result = await users.find().toArray()
             res.send(result)
         })
